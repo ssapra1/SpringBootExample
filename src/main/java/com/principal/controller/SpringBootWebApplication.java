@@ -7,12 +7,20 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @SpringBootApplication
 @ComponentScan("com.principal")
 @EnableAutoConfiguration
 @EnableJpaAuditing
 public class SpringBootWebApplication extends SpringBootServletInitializer {
+	
+	 @RequestMapping("/")
+	    @ResponseBody
+	    String home() {
+	      return "Hello World!";
+	    }
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
